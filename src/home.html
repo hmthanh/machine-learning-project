@@ -1,0 +1,63 @@
+<body>
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#">
+        <h4>Nhận diện hình vẽ</h4>
+    </a>
+</nav>
+
+<div class="container-fluid">
+    <blockquote class="blockquote text-justify" style="margin:30px;">
+        <p> Nhận diện nét vẽ
+            <footer class="blockquote-footer">ZAID ALYAFEAI</footer>
+    </blockquote>
+</div>
+
+<div class="row">
+    <div class="col" style='margin-left:100px;'>
+        <h4 id='status'>Loading Model... </h4>
+        <canvas class="canvas" height="300" id="canvas" style="border:1px solid #b9bfc9;margin-top:25px;"
+                width="300"></canvas>
+        <div class="btn-group" style='margin-top:40px; '>
+            <input class="slider" id="myRange" max="20" min="5" style='margin-top:20px;' type="range" value="10">
+            <button class="btn btn-outline-primary" disabled onclick='erase()' style='margin-left:10px;' type="button">
+                Clear
+            </button>
+        </div>
+    </div>
+    <div class="col">
+        <section style="margin-top:120px">
+            <div class="pieID pie">
+
+            </div>
+            <ul class="pieID legend">
+                <li>
+                    <em id="sym1"></em>
+                    <span id="prob1"></span>
+                </li>
+                <li>
+                    <em id="sym2"></em>
+                    <span id="prob2"></span>
+                </li>
+                <li>
+                    <em id="sym3"></em>
+                    <span id="prob3"></span>
+                </li>
+                <li>
+                    <em id="sym4"></em>
+                    <span id="prob4"></span>
+                </li>
+                <li>
+                    <em id="sym5"></em>
+                    <span id="prob5"></span>
+                </li>
+            </ul>
+        </section>
+    </div>
+</div>
+</body>
+<script src="js/pie.js"></script>
+<script>
+    console.log('starting');
+    start('en')
+</script>
