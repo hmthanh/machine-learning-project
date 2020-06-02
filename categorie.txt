@@ -4,13 +4,11 @@ ambulance
 angel
 ant
 apple
-asparagus
 axe
 backpack
 banana
 baseball
 bat
-bathtub
 beach
 bear
 beard
@@ -18,7 +16,6 @@ bed
 bee
 bench
 bicycle
-binoculars
 bird
 birthday cake
 blackberry
@@ -34,14 +31,12 @@ bucket
 bus
 bush
 butterfly
-cactus
 cake
 calculator
 calendar
 camel
 camera
 candle
-canoe
 car
 carrot
 castle
@@ -54,8 +49,6 @@ circle
 clock
 cloud
 coffee cup
-compass
-computer
 cookie
 couch
 cow
@@ -84,25 +77,18 @@ eyeglasses
 face
 fan
 feather
-fence
 finger
 fire hydrant
-fireplace
 firetruck
 fish
 flamingo
 flashlight
-flip flops
 floor lamp
 flower
-flying saucer
 foot
 fork
 frog
-frying pan
 garden
-garden hose
-golf club
 grapes
 grass
 guitar
@@ -112,28 +98,22 @@ hand
 harp
 hat
 headphones
-hedgehog
 helicopter
 helmet
 hexagon
 horse
 hospital
-hot air balloon
 hot dog
 hot tub
-hourglass
 house
 house plant
 ice cream
 jacket
-jail
 kangaroo
 key
 keyboard
 knee
 knife
-ladder
-lantern
 laptop
 leaf
 leg
@@ -145,7 +125,6 @@ line
 lion
 lipstick
 lobster
-lollipop
 mailbox
 map
 marker
@@ -172,12 +151,10 @@ onion
 oven
 owl
 paintbrush
-paint can
 palm tree
 panda
 pants
 paper clip
-parachute
 parrot
 passport
 peanut
@@ -196,7 +173,6 @@ pliers
 police car
 pond
 pool
-popsicle
 postcard
 potato
 power outlet
@@ -207,11 +183,7 @@ radio
 rain
 rainbow
 rake
-remote control
-rifle
 river
-roller coaster
-rollerskates
 sailboat
 sandwich
 saw
@@ -219,7 +191,6 @@ saxophone
 school bus
 scissors
 scorpion
-screwdriver
 sea turtle
 see saw
 shark
@@ -228,10 +199,8 @@ shoe
 shorts
 shovel
 sink
-skateboard
 skull
 skyscraper
-sleeping bag
 smiley face
 snail
 snake
@@ -245,8 +214,6 @@ spider
 spoon
 spreadsheet
 square
-squiggle
-squirrel
 stairs
 star
 steak
@@ -262,7 +229,6 @@ swan
 sweater
 swing set
 sword
-syringe
 table
 teapot
 teddy-bear
