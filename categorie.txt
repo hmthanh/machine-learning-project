@@ -102,8 +102,6 @@ frog
 frying pan
 garden
 garden hose
-giraffe
-goatee
 golf club
 grapes
 grass
@@ -118,8 +116,6 @@ hedgehog
 helicopter
 helmet
 hexagon
-hockey puck
-hockey stick
 horse
 hospital
 hot air balloon
@@ -128,7 +124,6 @@ hot tub
 hourglass
 house
 house plant
-hurricane
 ice cream
 jacket
 jail
@@ -156,7 +151,6 @@ map
 marker
 matches
 megaphone
-mermaid
 microphone
 microwave
 monkey
@@ -170,7 +164,6 @@ mouth
 mug
 mushroom
 nail
-necklace
 nose
 ocean
 octagon
@@ -215,7 +208,6 @@ rain
 rainbow
 rake
 remote control
-rhinoceros
 rifle
 river
 roller coaster
@@ -259,10 +251,7 @@ stairs
 star
 steak
 stereo
-stethoscope
-stitches
 stop sign
-stove
 strawberry
 streetlight
 string bean
@@ -290,31 +279,24 @@ toe
 toilet
 tooth
 toothbrush
-toothpaste
 tornado
 tractor
 traffic light
 train
 tree
 triangle
-trombone
 truck
-trumpet
 t-shirt
 umbrella
 underwear
 van
 vase
 violin
-washing machine
 watermelon
-waterslide
-whale
 wheel
 windmill
 wine bottle
 wine glass
-wristwatch
 yoga
 zebra
 zigzag
