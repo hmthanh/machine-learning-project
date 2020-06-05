@@ -1,6 +1,7 @@
 let model;
 let canvas;
 let classNames = [];
+let classNames_vn = []
 let coords = [];
 let mousePressed = false;
 const LINE_THIN = 5;
@@ -47,7 +48,7 @@ function setTable(top5, probs) {
         let sym = document.getElementById('sym' + (i + 1))
         let prob = document.getElementById('prob' + (i + 1))
         sym.innerHTML = top5[i]
-        prob.innerHTML = Math.round(probs[i] * 100)
+        prob.innerHTML = Math.round(probs[i] * 100).toString()
     }
     //create the pie 
     createPie(".pieID.legend", ".pieID.pie");
@@ -128,10 +129,13 @@ function getFrame() {
         //find the top 5 predictions 
         const indices = findIndicesOfMax(pred, 5)
         const probs = findTopValues(pred, 5)
+        // indices
         const names = getClassNames(indices)
-
-        //set the table 
-        setTable(names, probs)
+        let predict = document.getElementById("predictImg");
+        predict.src = "../quickdraw/images/category/" + names[0] + ".png";
+        //set the table
+        const names_vn = getClassNames_vn(indices)
+        setTable(names_vn, probs)
     }
 
 }
@@ -146,14 +150,26 @@ function getClassNames(indices) {
     return outp
 }
 
+function getClassNames_vn(indices) {
+    let outp = []
+    for (let i = 0; i < indices.length; i++)
+        outp[i] = classNames_vn[indices[i]]
+    return outp
+}
+
 /*
 load the class names 
 */
 async function loadDict() {
     await $.ajax({
-        url: 'model2/class_names_vn.txt',
+        url: 'model2/class_names.txt',
         dataType: 'text',
     }).done(success);
+
+    await $.ajax({
+        url: 'model2/class_names_vn.txt',
+        dataType: 'text',
+    }).done(success_vn);
 }
 
 /*
@@ -164,6 +180,14 @@ function success(data) {
     for (let i = 0; i < lst.length - 1; i++) {
         let symbol = lst[i]
         classNames[i] = symbol
+    }
+}
+
+function success_vn(data) {
+    let lst2 = data.split(/\n/)
+    for (let i = 0; i < lst2.length - 1; i++) {
+        let symbol = lst2[i]
+        classNames_vn[i] = symbol
     }
 }
 
@@ -239,7 +263,7 @@ function allowDrawing() {
     // console.log("1", canvas.isDrawingMode === null, "2", canvas.isDrawingMode === undefined, "3", canvas.isDrawingMode === 0)
     if (canvas.isDrawingMode === 0) {
         canvas.isDrawingMode = 1;
-    }else if (canvas.isDrawingMode === null || canvas.isDrawingMode === undefined){
+    } else if (canvas.isDrawingMode === null || canvas.isDrawingMode === undefined) {
 
     }
     canvas.freeDrawingBrush.width = LINE_THIN;
