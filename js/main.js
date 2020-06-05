@@ -131,13 +131,25 @@ function getFrame() {
         const probs = findTopValues(pred, 5)
         // indices
         const names = getClassNames(indices)
-        let predict = document.getElementById("predictImg");
-        predict.src = "../quickdraw/images/category/" + names[0] + ".png";
+        getPreImage(names[0]);
         //set the table
         const names_vn = getClassNames_vn(indices)
         setTable(names_vn, probs)
     }
 
+}
+
+function getPreImage(name){
+    // let predict = document.getElementById("predictImg");
+    let img = new Image();
+    img.src = "../quickdraw/images/category/" + name + ".png";
+    img.width = 300;
+    img.height = 300;
+    let img_home = document.getElementById("predictImg");
+    img_home.innerHTML = ""
+    img_home.appendChild(img);
+    // let ctxPre = preCanvas.getContext("2d");
+    // ctxPre.drawImage(img, 0,0, preCanvas.width, preCanvas.height)
 }
 
 /*
