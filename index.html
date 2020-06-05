@@ -282,432 +282,432 @@
               return !0
           };
       }).call(this);
-      (function () {
-          var f = this || self,
-              h = Date.now || function () {
-                  return +new Date
-              };
-
-          var x = {};
-          var aa = function (a, c) {
-              if (null === c) return !1;
-              if ("contains" in a && 1 == c.nodeType) return a.contains(c);
-              if ("compareDocumentPosition" in a) return a == c || !!(a.compareDocumentPosition(c) & 16);
-              for (; c && a != c;) c = c.parentNode;
-              return c == a
-          };
-          var ba = function (a, c) {
-                  return function (d) {
-                      d || (d = window.event);
-                      return c.call(a, d)
-                  }
-              },
-              z = function (a) {
-                  a = a.target || a.srcElement;
-                  !a.getAttribute && a.parentNode && (a = a.parentNode);
-                  return a
-              },
-              A = "undefined" != typeof navigator && /Macintosh/.test(navigator.userAgent),
-              ca = "undefined" != typeof navigator && !/Opera/.test(navigator.userAgent) && /WebKit/.test(navigator.userAgent),
-              da = {
-                  A: 1,
-                  INPUT: 1,
-                  TEXTAREA: 1,
-                  SELECT: 1,
-                  BUTTON: 1
-              },
-              ea = function () {
-                  this._mouseEventsPrevented = !0
-              },
-              F = {
-                  A: 13,
-                  BUTTON: 0,
-                  CHECKBOX: 32,
-                  COMBOBOX: 13,
-                  FILE: 0,
-                  GRIDCELL: 13,
-                  LINK: 13,
-                  LISTBOX: 13,
-                  MENU: 0,
-                  MENUBAR: 0,
-                  MENUITEM: 0,
-                  MENUITEMCHECKBOX: 0,
-                  MENUITEMRADIO: 0,
-                  OPTION: 0,
-                  RADIO: 32,
-                  RADIOGROUP: 32,
-                  RESET: 0,
-                  SUBMIT: 0,
-                  SWITCH: 32,
-                  TAB: 0,
-                  TREE: 13,
-                  TREEITEM: 13
-              },
-              G = {
-                  CHECKBOX: !0,
-                  FILE: !0,
-                  OPTION: !0,
-                  RADIO: !0
-              },
-              H = {
-                  COLOR: !0,
-                  DATE: !0,
-                  DATETIME: !0,
-                  "DATETIME-LOCAL": !0,
-                  EMAIL: !0,
-                  MONTH: !0,
-                  NUMBER: !0,
-                  PASSWORD: !0,
-                  RANGE: !0,
-                  SEARCH: !0,
-                  TEL: !0,
-                  TEXT: !0,
-                  TEXTAREA: !0,
-                  TIME: !0,
-                  URL: !0,
-                  WEEK: !0
-              },
-              fa = {
-                  A: !0,
-                  AREA: !0,
-                  BUTTON: !0,
-                  DIALOG: !0,
-                  IMG: !0,
-                  INPUT: !0,
-                  LINK: !0,
-                  MENU: !0,
-                  OPTGROUP: !0,
-                  OPTION: !0,
-                  PROGRESS: !0,
-                  SELECT: !0,
-                  TEXTAREA: !0
-              };
-          var I = function () {
-                  this.h = this.a = null
-              },
-              K = function (a, c) {
-                  var d = J;
-                  d.a = a;
-                  d.h = c;
-                  return d
-              };
-          I.prototype.g = function () {
-              var a = this.a;
-              this.a && this.a != this.h ? this.a = this.a.__owner || this.a.parentNode : this.a = null;
-              return a
-          };
-          var L = function () {
-              this.i = [];
-              this.a = 0;
-              this.h = null;
-              this.j = !1
-          };
-          L.prototype.g = function () {
-              if (this.j) return J.g();
-              if (this.a != this.i.length) {
-                  var a = this.i[this.a];
-                  this.a++;
-                  a != this.h && a && a.__owner && (this.j = !0, K(a.__owner, this.h));
-                  return a
-              }
-              return null
-          };
-          var J = new I,
-              M = new L;
-          var O = function () {
-                  this.o = [];
-                  this.a = [];
-                  this.g = [];
-                  this.j = {};
-                  this.h = null;
-                  this.i = [];
-                  N(this, "_custom")
-              },
-              ha = "undefined" != typeof navigator && /iPhone|iPad|iPod/.test(navigator.userAgent),
-              P = String.prototype.trim ? function (a) {
-                  return a.trim()
-              } : function (a) {
-                  return a.replace(/^\s+/, "").replace(/\s+$/, "")
-              },
-              ia = /\s*;\s*/,
-              ma = function (a, c) {
-                  return function p(b, g) {
-                      g = void 0 === g ? !0 : g;
-                      var m = c;
-                      if ("_custom" == m) {
-                          m = b.detail;
-                          if (!m || !m._type) return;
-                          m = m._type
-                      }
-                      if ("click" == m && (A && b.metaKey || !A && b.ctrlKey || 2 == b.which || null == b.which &&
-                          4 == b.button || b.shiftKey)) m = "clickmod";
-                      else {
-                          var l = b.which || b.keyCode;
-                          ca && 3 == l && (l = 13);
-                          if (13 != l && 32 != l) l = !1;
-                          else {
-                              var e = z(b),
-                                  n;
-                              (n = "keydown" != b.type || !!(!("getAttribute" in e) || (e.getAttribute("type") || e.tagName).toUpperCase() in H || "BUTTON" == e.tagName.toUpperCase() || e.type && "FILE" == e.type.toUpperCase() || e.isContentEditable) || b.ctrlKey || b.shiftKey || b.altKey || b.metaKey || (e.getAttribute("type") || e.tagName).toUpperCase() in G && 32 == l) || ((n = e.tagName in da) || (n = e.getAttributeNode("tabindex"), n = null != n && n.specified), n = !(n && !e.disabled));
-                              if (n) l = !1;
-                              else {
-                                  n = (e.getAttribute("role") || e.type || e.tagName).toUpperCase();
-                                  var q = !(n in F) && 13 == l;
-                                  e = "INPUT" != e.tagName.toUpperCase() || !!e.type;
-                                  l = (0 == F[n] % l || q) && e
-                              }
-                          }
-                          l && (m = "clickkey")
-                      }
-                      e = b.srcElement || b.target;
-                      l = Q(m, b, e, "", null);
-                      b.path ? (M.i = b.path, M.a = 0, M.h = this, M.j = !1, n = M) : n = K(e, this);
-                      for (; q = n.g();) {
-                          var k = q;
-                          var r = void 0;
-                          var u = k;
-                          q = m;
-                          var t = u.__jsaction;
-                          if (!t) {
-                              var y;
-                              t = null;
-                              "getAttribute" in u && (t = u.getAttribute("jsaction"));
-                              if (y = t) {
-                                  t = x[y];
-                                  if (!t) {
-                                      t = {};
-                                      for (var B = y.split(ia), ja = B ? B.length : 0, C = 0; C < ja; C++) {
-                                          var w = B[C];
-                                          if (w) {
-                                              var D = w.indexOf(":"),
-                                                  R = -1 != D,
-                                                  ka = R ? P(w.substr(0, D)) : "click";
-                                              w = R ? P(w.substr(D + 1)) : w;
-                                              t[ka] = w
-                                          }
-                                      }
-                                      x[y] = t
-                                  }
-                                  u.__jsaction = t
-                              } else t = la, u.__jsaction = t
-                          }
-                          u = t;
-                          "maybe_click" == q && u.click ? (r = q, q = "click") : "clickkey" == q ? q = "click" : "click" != q || u.click || (q = "clickonly");
-                          r = {
-                              m: r ? r : q,
-                              action: u[q] || "",
-                              event: null,
-                              s: !1
-                          };
-                          l = Q(r.m, r.event || b, e, r.action || "", k, l.timeStamp);
-                          if (r.s || r.action) break
-                      }
-                      l && "touchend" == l.eventType && (l.event._preventMouseEvents = ea);
-                      if (r && r.action) {
-                          if (e = "clickkey" == m) e = z(b), e = (e.type ||
-                              e.tagName).toUpperCase(), (e = 32 == (b.which || b.keyCode) && "CHECKBOX" != e) || (e = z(b), n = e.tagName.toUpperCase(), r = (e.getAttribute("role") || "").toUpperCase(), e = "BUTTON" === n || "BUTTON" === r ? !0 : !(e.tagName.toUpperCase() in fa) || "A" === n || "SELECT" === n || (e.getAttribute("type") || e.tagName).toUpperCase() in G || (e.getAttribute("type") || e.tagName).toUpperCase() in H ? !1 : !0);
-                          e && (b.preventDefault ? b.preventDefault() : b.returnValue = !1);
-                          if ("mouseenter" == m || "mouseleave" == m)
-                              if (e = b.relatedTarget, !("mouseover" == b.type && "mouseenter" ==
-                                  m || "mouseout" == b.type && "mouseleave" == m) || e && (e === k || aa(k, e))) l.action = "", l.actionElement = null;
-                              else {
-                                  m = {};
-                                  for (var v in b) "function" !== typeof b[v] && "srcElement" !== v && "target" !== v && (m[v] = b[v]);
-                                  m.type = "mouseover" == b.type ? "mouseenter" : "mouseleave";
-                                  m.target = m.srcElement = k;
-                                  m.bubbles = !1;
-                                  l.event = m;
-                                  l.targetElement = k
-                              }
-                      } else l.action = "", l.actionElement = null;
-                      k = l;
-                      a.h && !k.event.a11ysgd && (v = Q(k.eventType, k.event, k.targetElement, k.action, k.actionElement, k.timeStamp), "clickonly" == v.eventType && (v.eventType = "click"), a.h(v, !0));
-                      if (k.actionElement) {
-                          if (a.h) {
-                              if (!k.actionElement || "A" != k.actionElement.tagName || "click" != k.eventType && "clickmod" != k.eventType || (b.preventDefault ? b.preventDefault() : b.returnValue = !1), (b = a.h(k)) && g) {
-                                  p.call(this, b, !1);
-                                  return
-                              }
-                          } else {
-                              if ((g = f.document) && !g.createEvent && g.createEventObject) try {
-                                  var E = g.createEventObject(b)
-                              } catch (pa) {
-                                  E = b
-                              } else E = b;
-                              k.event = E;
-                              a.i.push(k)
-                          }
-                          if ("touchend" == k.event.type && k.event._mouseEventsPrevented) {
-                              b = k.event;
-                              for (var qa in b) ;
-                              h()
-                          }
-                      }
-                  }
-              },
-              Q = function (a, c, d, b, g, p) {
-                  return {
-                      eventType: a,
-                      event: c,
-                      targetElement: d,
-                      action: b,
-                      actionElement: g,
-                      timeStamp: p || h()
-                  }
-              },
-              la = {},
-              na = function (a, c) {
-                  return function (d) {
-                      var b = a,
-                          g = c,
-                          p = !1;
-                      "mouseenter" == b ? b = "mouseover" : "mouseleave" == b && (b = "mouseout");
-                      if (d.addEventListener) {
-                          if ("focus" == b || "blur" == b || "error" == b || "load" == b) p = !0;
-                          d.addEventListener(b, g, p)
-                      } else d.attachEvent && ("focus" == b ? b = "focusin" : "blur" == b && (b = "focusout"), g = ba(d, g), d.attachEvent("on" + b, g));
-                      return {
-                          m: b,
-                          l: g,
-                          capture: p
-                      }
-                  }
-              },
-              N = function (a, c) {
-                  if (!a.j.hasOwnProperty(c)) {
-                      var d = ma(a, c),
-                          b = na(c, d);
-                      a.j[c] = d;
-                      a.o.push(b);
-                      for (d = 0; d < a.a.length; ++d) {
-                          var g = a.a[d];
-                          g.g.push(b.call(null, g.a))
-                      }
-                      "click" == c && N(a, "keydown")
-                  }
-              };
-          O.prototype.l = function (a) {
-              return this.j[a]
-          };
-          var V = function (a, c) {
-                  var d = new oa(c);
-                  a: {
-                      for (var b = 0; b < a.a.length; b++)
-                          if (S(a.a[b], c)) {
-                              c = !0;
-                              break a
-                          }
-                      c = !1
-                  }
-                  if (c) return a.g.push(d), d;
-                  T(a, d);
-                  a.a.push(d);
-                  U(a);
-                  return d
-              },
-              U = function (a) {
-                  for (var c = a.g.concat(a.a), d = [], b = [], g = 0; g < a.a.length; ++g) {
-                      var p = a.a[g];
-                      W(p, c) ? (d.push(p), X(p)) : b.push(p)
-                  }
-                  for (g = 0; g < a.g.length; ++g) p = a.g[g], W(p, c) ? d.push(p) : (b.push(p), T(a, p));
-                  a.a = b;
-                  a.g = d
-              },
-              T = function (a, c) {
-                  var d = c.a;
-                  ha && (d.style.cursor = "pointer");
-                  for (d = 0; d < a.o.length; ++d) c.g.push(a.o[d].call(null, c.a))
-              },
-              Y = function (a, c) {
-                  a.h = c;
-                  a.i && (0 < a.i.length && c(a.i), a.i = null)
-              },
-              oa = function (a) {
-                  this.a = a;
-                  this.g = []
-              },
-              S = function (a, c) {
-                  for (a = a.a; a != c && c.parentNode;) c = c.parentNode;
-                  return a == c
-              },
-              W = function (a, c) {
-                  for (var d = 0; d < c.length; ++d)
-                      if (c[d].a != a.a && S(c[d], a.a)) return !0;
-                  return !1
-              },
-              X = function (a) {
-                  for (var c = 0; c < a.g.length; ++c) {
-                      var d = a.a,
-                          b = a.g[c];
-                      d.removeEventListener ? d.removeEventListener(b.m, b.l, b.capture) : d.detachEvent && d.detachEvent("on" + b.m, b.l)
-                  }
-                  a.g = []
-              };
-          var Z = new O;
-          V(Z, window.document.documentElement);
-          N(Z, "click");
-          N(Z, "focus");
-          N(Z, "focusin");
-          N(Z, "blur");
-          N(Z, "focusout");
-          N(Z, "error");
-          N(Z, "load");
-          N(Z, "change");
-          N(Z, "dblclick");
-          N(Z, "input");
-          N(Z, "keyup");
-          N(Z, "keydown");
-          N(Z, "keypress");
-          N(Z, "mousedown");
-          N(Z, "mouseenter");
-          N(Z, "mouseleave");
-          N(Z, "mouseout");
-          N(Z, "mouseover");
-          N(Z, "mouseup");
-          N(Z, "paste");
-          N(Z, "touchstart");
-          N(Z, "touchend");
-          N(Z, "touchcancel");
-          N(Z, "speech");
-          (function (a) {
-              Pythagon.jsad = function (c) {
-                  Y(a, c)
-              };
-              Pythagon.jsaac = function (c) {
-                  return V(a, c)
-              };
-              Pythagon.jsarc = function (c) {
-                  X(c);
-                  for (var d = !1, b = 0; b < a.a.length; ++b)
-                      if (a.a[b] === c) {
-                          a.a.splice(b, 1);
-                          d = !0;
-                          break
-                      }
-                  if (!d)
-                      for (d = 0; d < a.g.length; ++d)
-                          if (a.g[d] === c) {
-                              a.g.splice(d, 1);
-                              break
-                          }
-                  U(a)
-              }
-          })(Z);
-          window.gws_wizbind = function (a) {
-              return {
-                  trigger: function (c) {
-                      var d = a.l(c.type);
-                      d || (N(a, c.type), d = a.l(c.type));
-                      var b = c.target || c.srcElement;
-                      d && d.call(b.ownerDocument.documentElement, c)
-                  },
-                  bind: function (c) {
-                      Y(a, c)
-                  }
-              }
-          }(Z);
-      }).call(this);
+      // (function () {
+      //     var f = this || self,
+      //         h = Date.now || function () {
+      //             return +new Date
+      //         };
+      //
+      //     var x = {};
+      //     var aa = function (a, c) {
+      //         if (null === c) return !1;
+      //         if ("contains" in a && 1 == c.nodeType) return a.contains(c);
+      //         if ("compareDocumentPosition" in a) return a == c || !!(a.compareDocumentPosition(c) & 16);
+      //         for (; c && a != c;) c = c.parentNode;
+      //         return c == a
+      //     };
+      //     var ba = function (a, c) {
+      //             return function (d) {
+      //                 d || (d = window.event);
+      //                 return c.call(a, d)
+      //             }
+      //         },
+      //         z = function (a) {
+      //             a = a.target || a.srcElement;
+      //             !a.getAttribute && a.parentNode && (a = a.parentNode);
+      //             return a
+      //         },
+      //         A = "undefined" != typeof navigator && /Macintosh/.test(navigator.userAgent),
+      //         ca = "undefined" != typeof navigator && !/Opera/.test(navigator.userAgent) && /WebKit/.test(navigator.userAgent),
+      //         da = {
+      //             A: 1,
+      //             INPUT: 1,
+      //             TEXTAREA: 1,
+      //             SELECT: 1,
+      //             BUTTON: 1
+      //         },
+      //         ea = function () {
+      //             this._mouseEventsPrevented = !0
+      //         },
+      //         F = {
+      //             A: 13,
+      //             BUTTON: 0,
+      //             CHECKBOX: 32,
+      //             COMBOBOX: 13,
+      //             FILE: 0,
+      //             GRIDCELL: 13,
+      //             LINK: 13,
+      //             LISTBOX: 13,
+      //             MENU: 0,
+      //             MENUBAR: 0,
+      //             MENUITEM: 0,
+      //             MENUITEMCHECKBOX: 0,
+      //             MENUITEMRADIO: 0,
+      //             OPTION: 0,
+      //             RADIO: 32,
+      //             RADIOGROUP: 32,
+      //             RESET: 0,
+      //             SUBMIT: 0,
+      //             SWITCH: 32,
+      //             TAB: 0,
+      //             TREE: 13,
+      //             TREEITEM: 13
+      //         },
+      //         G = {
+      //             CHECKBOX: !0,
+      //             FILE: !0,
+      //             OPTION: !0,
+      //             RADIO: !0
+      //         },
+      //         H = {
+      //             COLOR: !0,
+      //             DATE: !0,
+      //             DATETIME: !0,
+      //             "DATETIME-LOCAL": !0,
+      //             EMAIL: !0,
+      //             MONTH: !0,
+      //             NUMBER: !0,
+      //             PASSWORD: !0,
+      //             RANGE: !0,
+      //             SEARCH: !0,
+      //             TEL: !0,
+      //             TEXT: !0,
+      //             TEXTAREA: !0,
+      //             TIME: !0,
+      //             URL: !0,
+      //             WEEK: !0
+      //         },
+      //         fa = {
+      //             A: !0,
+      //             AREA: !0,
+      //             BUTTON: !0,
+      //             DIALOG: !0,
+      //             IMG: !0,
+      //             INPUT: !0,
+      //             LINK: !0,
+      //             MENU: !0,
+      //             OPTGROUP: !0,
+      //             OPTION: !0,
+      //             PROGRESS: !0,
+      //             SELECT: !0,
+      //             TEXTAREA: !0
+      //         };
+      //     var I = function () {
+      //             this.h = this.a = null
+      //         },
+      //         K = function (a, c) {
+      //             var d = J;
+      //             d.a = a;
+      //             d.h = c;
+      //             return d
+      //         };
+      //     I.prototype.g = function () {
+      //         var a = this.a;
+      //         this.a && this.a != this.h ? this.a = this.a.__owner || this.a.parentNode : this.a = null;
+      //         return a
+      //     };
+      //     var L = function () {
+      //         this.i = [];
+      //         this.a = 0;
+      //         this.h = null;
+      //         this.j = !1
+      //     };
+      //     L.prototype.g = function () {
+      //         if (this.j) return J.g();
+      //         if (this.a != this.i.length) {
+      //             var a = this.i[this.a];
+      //             this.a++;
+      //             a != this.h && a && a.__owner && (this.j = !0, K(a.__owner, this.h));
+      //             return a
+      //         }
+      //         return null
+      //     };
+      //     var J = new I,
+      //         M = new L;
+      //     var O = function () {
+      //             this.o = [];
+      //             this.a = [];
+      //             this.g = [];
+      //             this.j = {};
+      //             this.h = null;
+      //             this.i = [];
+      //             N(this, "_custom")
+      //         },
+      //         ha = "undefined" != typeof navigator && /iPhone|iPad|iPod/.test(navigator.userAgent),
+      //         P = String.prototype.trim ? function (a) {
+      //             return a.trim()
+      //         } : function (a) {
+      //             return a.replace(/^\s+/, "").replace(/\s+$/, "")
+      //         },
+      //         ia = /\s*;\s*/,
+      //         ma = function (a, c) {
+      //             return function p(b, g) {
+      //                 g = void 0 === g ? !0 : g;
+      //                 var m = c;
+      //                 if ("_custom" == m) {
+      //                     m = b.detail;
+      //                     if (!m || !m._type) return;
+      //                     m = m._type
+      //                 }
+      //                 if ("click" == m && (A && b.metaKey || !A && b.ctrlKey || 2 == b.which || null == b.which &&
+      //                     4 == b.button || b.shiftKey)) m = "clickmod";
+      //                 else {
+      //                     var l = b.which || b.keyCode;
+      //                     ca && 3 == l && (l = 13);
+      //                     if (13 != l && 32 != l) l = !1;
+      //                     else {
+      //                         var e = z(b),
+      //                             n;
+      //                         (n = "keydown" != b.type || !!(!("getAttribute" in e) || (e.getAttribute("type") || e.tagName).toUpperCase() in H || "BUTTON" == e.tagName.toUpperCase() || e.type && "FILE" == e.type.toUpperCase() || e.isContentEditable) || b.ctrlKey || b.shiftKey || b.altKey || b.metaKey || (e.getAttribute("type") || e.tagName).toUpperCase() in G && 32 == l) || ((n = e.tagName in da) || (n = e.getAttributeNode("tabindex"), n = null != n && n.specified), n = !(n && !e.disabled));
+      //                         if (n) l = !1;
+      //                         else {
+      //                             n = (e.getAttribute("role") || e.type || e.tagName).toUpperCase();
+      //                             var q = !(n in F) && 13 == l;
+      //                             e = "INPUT" != e.tagName.toUpperCase() || !!e.type;
+      //                             l = (0 == F[n] % l || q) && e
+      //                         }
+      //                     }
+      //                     l && (m = "clickkey")
+      //                 }
+      //                 e = b.srcElement || b.target;
+      //                 l = Q(m, b, e, "", null);
+      //                 b.path ? (M.i = b.path, M.a = 0, M.h = this, M.j = !1, n = M) : n = K(e, this);
+      //                 for (; q = n.g();) {
+      //                     var k = q;
+      //                     var r = void 0;
+      //                     var u = k;
+      //                     q = m;
+      //                     var t = u.__jsaction;
+      //                     if (!t) {
+      //                         var y;
+      //                         t = null;
+      //                         "getAttribute" in u && (t = u.getAttribute("jsaction"));
+      //                         if (y = t) {
+      //                             t = x[y];
+      //                             if (!t) {
+      //                                 t = {};
+      //                                 for (var B = y.split(ia), ja = B ? B.length : 0, C = 0; C < ja; C++) {
+      //                                     var w = B[C];
+      //                                     if (w) {
+      //                                         var D = w.indexOf(":"),
+      //                                             R = -1 != D,
+      //                                             ka =  R ? P(w.substr(0, D)) : "click";
+      //                                         w = R ? P(w.substr(D + 1)) : w;
+      //                                         t[ka] = w
+      //                                     }
+      //                                 }
+      //                                 x[y] = t
+      //                             }
+      //                             u.__jsaction = t
+      //                         } else t = la, u.__jsaction = t
+      //                     }
+      //                     u = t;
+      //                     "maybe_click" == q && u.click ? (r = q, q = "click") : "clickkey" == q ? q = "click" : "click" != q || u.click || (q = "clickonly");
+      //                     r = {
+      //                         m: r ? r : q,
+      //                         action: u[q] || "",
+      //                         event: null,
+      //                         s: !1
+      //                     };
+      //                     l = Q(r.m, r.event || b, e, r.action || "", k, l.timeStamp);
+      //                     if (r.s || r.action) break
+      //                 }
+      //                 l && "touchend" == l.eventType && (l.event._preventMouseEvents = ea);
+      //                 if (r && r.action) {
+      //                     if (e = "clickkey" == m) e = z(b), e = (e.type ||
+      //                         e.tagName).toUpperCase(), (e = 32 == (b.which || b.keyCode) && "CHECKBOX" != e) || (e = z(b), n = e.tagName.toUpperCase(), r = (e.getAttribute("role") || "").toUpperCase(), e = "BUTTON" === n || "BUTTON" === r ? !0 : !(e.tagName.toUpperCase() in fa) || "A" === n || "SELECT" === n || (e.getAttribute("type") || e.tagName).toUpperCase() in G || (e.getAttribute("type") || e.tagName).toUpperCase() in H ? !1 : !0);
+      //                     e && (b.preventDefault ? b.preventDefault() : b.returnValue = !1);
+      //                     if ("mouseenter" == m || "mouseleave" == m)
+      //                         if (e = b.relatedTarget, !("mouseover" == b.type && "mouseenter" ==
+      //                             m || "mouseout" == b.type && "mouseleave" == m) || e && (e === k || aa(k, e))) l.action = "", l.actionElement = null;
+      //                         else {
+      //                             m = {};
+      //                             for (var v in b) "function" !== typeof b[v] && "srcElement" !== v && "target" !== v && (m[v] = b[v]);
+      //                             m.type = "mouseover" == b.type ? "mouseenter" : "mouseleave";
+      //                             m.target = m.srcElement = k;
+      //                             m.bubbles = !1;
+      //                             l.event = m;
+      //                             l.targetElement = k
+      //                         }
+      //                 } else l.action = "", l.actionElement = null;
+      //                 k = l;
+      //                 a.h && !k.event.a11ysgd && (v = Q(k.eventType, k.event, k.targetElement, k.action, k.actionElement, k.timeStamp), "clickonly" == v.eventType && (v.eventType = "click"), a.h(v, !0));
+      //                 if (k.actionElement) {
+      //                     if (a.h) {
+      //                         if (!k.actionElement || "A" != k.actionElement.tagName || "click" != k.eventType && "clickmod" != k.eventType || (b.preventDefault ? b.preventDefault() : b.returnValue = !1), (b = a.h(k)) && g) {
+      //                             p.call(this, b, !1);
+      //                             return
+      //                         }
+      //                     } else {
+      //                         if ((g = f.document) && !g.createEvent && g.createEventObject) try {
+      //                             var E = g.createEventObject(b)
+      //                         } catch (pa) {
+      //                             E = b
+      //                         } else E = b;
+      //                         k.event = E;
+      //                         a.i.push(k)
+      //                     }
+      //                     if ("touchend" == k.event.type && k.event._mouseEventsPrevented) {
+      //                         b = k.event;
+      //                         for (var qa in b) ;
+      //                         h()
+      //                     }
+      //                 }
+      //             }
+      //         },
+      //         Q = function (a, c, d, b, g, p) {
+      //             return {
+      //                 eventType: a,
+      //                 event: c,
+      //                 targetElement: d,
+      //                 action: b,
+      //                 actionElement: g,
+      //                 timeStamp: p || h()
+      //             }
+      //         },
+      //         la = {},
+      //         na = function (a, c) {
+      //             return function (d) {
+      //                 var b = a,
+      //                     g = c,
+      //                     p = !1;
+      //                 "mouseenter" == b ? b = "mouseover" : "mouseleave" == b && (b = "mouseout");
+      //                 if (d.addEventListener) {
+      //                     if ("focus" == b || "blur" == b || "error" == b || "load" == b) p = !0;
+      //                     d.addEventListener(b, g, p)
+      //                 } else d.attachEvent && ("focus" == b ? b = "focusin" : "blur" == b && (b = "focusout"), g = ba(d, g), d.attachEvent("on" + b, g));
+      //                 return {
+      //                     m: b,
+      //                     l: g,
+      //                     capture: p
+      //                 }
+      //             }
+      //         },
+      //         N = function (a, c) {
+      //             if (!a.j.hasOwnProperty(c)) {
+      //                 var d = ma(a, c),
+      //                     b = na(c, d);
+      //                 a.j[c] = d;
+      //                 a.o.push(b);
+      //                 for (d = 0; d < a.a.length; ++d) {
+      //                     var g = a.a[d];
+      //                     g.g.push(b.call(null, g.a))
+      //                 }
+      //                 "click" == c && N(a, "keydown")
+      //             }
+      //         };
+      //     O.prototype.l = function (a) {
+      //         return this.j[a]
+      //     };
+      //     var V = function (a, c) {
+      //             var d = new oa(c);
+      //             a: {
+      //                 for (var b = 0; b < a.a.length; b++)
+      //                     if (S(a.a[b], c)) {
+      //                         c = !0;
+      //                         break a
+      //                     }
+      //                 c = !1
+      //             }
+      //             if (c) return a.g.push(d), d;
+      //             T(a, d);
+      //             a.a.push(d);
+      //             U(a);
+      //             return d
+      //         },
+      //         U = function (a) {
+      //             for (var c = a.g.concat(a.a), d = [], b = [], g = 0; g < a.a.length; ++g) {
+      //                 var p = a.a[g];
+      //                 W(p, c) ? (d.push(p), X(p)) : b.push(p)
+      //             }
+      //             for (g = 0; g < a.g.length; ++g) p = a.g[g], W(p, c) ? d.push(p) : (b.push(p), T(a, p));
+      //             a.a = b;
+      //             a.g = d
+      //         },
+      //         T = function (a, c) {
+      //             var d = c.a;
+      //             ha && (d.style.cursor = "pointer");
+      //             for (d = 0; d < a.o.length; ++d) c.g.push(a.o[d].call(null, c.a))
+      //         },
+      //         Y = function (a, c) {
+      //             a.h = c;
+      //             a.i && (0 < a.i.length && c(a.i), a.i = null)
+      //         },
+      //         oa = function (a) {
+      //             this.a = a;
+      //             this.g = []
+      //         },
+      //         S = function (a, c) {
+      //             for (a = a.a; a != c && c.parentNode;) c = c.parentNode;
+      //             return a == c
+      //         },
+      //         W = function (a, c) {
+      //             for (var d = 0; d < c.length; ++d)
+      //                 if (c[d].a != a.a && S(c[d], a.a)) return !0;
+      //             return !1
+      //         },
+      //         X = function (a) {
+      //             for (var c = 0; c < a.g.length; ++c) {
+      //                 var d = a.a,
+      //                     b = a.g[c];
+      //                 d.removeEventListener ? d.removeEventListener(b.m, b.l, b.capture) : d.detachEvent && d.detachEvent("on" + b.m, b.l)
+      //             }
+      //             a.g = []
+      //         };
+      //     var Z = new O;
+      //     V(Z, window.document.documentElement);
+      //     N(Z, "click");
+      //     N(Z, "focus");
+      //     N(Z, "focusin");
+      //     N(Z, "blur");
+      //     N(Z, "focusout");
+      //     N(Z, "error");
+      //     N(Z, "load");
+      //     N(Z, "change");
+      //     N(Z, "dblclick");
+      //     N(Z, "input");
+      //     N(Z, "keyup");
+      //     N(Z, "keydown");
+      //     N(Z, "keypress");
+      //     N(Z, "mousedown");
+      //     N(Z, "mouseenter");
+      //     N(Z, "mouseleave");
+      //     N(Z, "mouseout");
+      //     N(Z, "mouseover");
+      //     N(Z, "mouseup");
+      //     N(Z, "paste");
+      //     N(Z, "touchstart");
+      //     N(Z, "touchend");
+      //     N(Z, "touchcancel");
+      //     N(Z, "speech");
+      //     (function (a) {
+      //         Pythagon.jsad = function (c) {
+      //             Y(a, c)
+      //         };
+      //         Pythagon.jsaac = function (c) {
+      //             return V(a, c)
+      //         };
+      //         Pythagon.jsarc = function (c) {
+      //             X(c);
+      //             for (var d = !1, b = 0; b < a.a.length; ++b)
+      //                 if (a.a[b] === c) {
+      //                     a.a.splice(b, 1);
+      //                     d = !0;
+      //                     break
+      //                 }
+      //             if (!d)
+      //                 for (d = 0; d < a.g.length; ++d)
+      //                     if (a.g[d] === c) {
+      //                         a.g.splice(d, 1);
+      //                         break
+      //                     }
+      //             U(a)
+      //         }
+      //     })(Z);
+      //     window.gws_wizbind = function (a) {
+      //         return {
+      //             trigger: function (c) {
+      //                 var d = a.l(c.type);
+      //                 d || (N(a, c.type), d = a.l(c.type));
+      //                 var b = c.target || c.srcElement;
+      //                 d && d.call(b.ownerDocument.documentElement, c)
+      //             },
+      //             bind: function (c) {
+      //                 Y(a, c)
+      //             }
+      //         }
+      //     }(Z);
+      // }).call(this);
       (function () {
           var b = [];
           Pythagon.jsc = {
@@ -3204,8 +3204,8 @@
 </head>
 
 <body class="srp tbo vasq jam-vertical-toolbar-enabled jam-fonts-loaded" id="gsr"
-      jsaction="rcuQ6b:npT2md;tbSCpf:.CLIENT" jscontroller="aCZVp" jsmodel="jivSc TvHxbe"
-      marginheight="3" topmargin="3">
+      jsaction="rcuQ6b:npT2md;tbSCpf:.CLIENT" jscontroller="aCZVp" jsmodel="jivSc TvHxbe" marginheight="3"
+      topmargin="3">
 <div id="cst">
   <style>
     .z1asCe {
@@ -3974,8 +3974,8 @@
              data-async-context-required="type,open,feature_id,async_id,entry_point,authority,card_id,ftoe,title,header,suggestions,surface,suggestions_types,suggestions_subtypes,preselect_answer_index,is_jobs_spam_form"
              data-async-type="duffy3"
              data-jiis="up" data-ved="0ahUKEwixnL2Mz9bpAhU1yosBHWsJAtYQ-0EIBg" id="duf3-78"></div>
-        <a class="gyPpGe" data-async-trigger="duf3-78" jsaction="async.u" jsname="JUypV" role="link"
-           tabindex="0">Phản hồi về hỗ trợ truy cập</a></div>
+        <a class="gyPpGe" data-async-trigger="duf3-78" jsaction="async.u" jsname="JUypV" role="link" tabindex="0">Phản
+          hồi về hỗ trợ truy cập</a></div>
     </div>
   </div>
 </div>
@@ -4341,9 +4341,7 @@
            jscontroller="mvYTse"
            jsdata="LVplcb;_;" jsmodel="TMlYFc">
         <div class="logo">
-          <a data-hveid="7"
-             href="#"
-             id="logo" title="Đến trang chủ Pythagon">
+          <a data-hveid="7" href="#" id="logo" title="Đến trang chủ Pythagon">
             <img alt="Pythagon" data-atf="1" height="60" src="images/branding/pi/1x/pythagon.png"></a>
         </div>
         <div class="search-box" jsname="search-box">
@@ -4356,18 +4354,16 @@
                         d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></span>
               </div>
             </div>
-            <div class="a4bIc" jsaction="h5M12e;input:d3sQLd;blur:jI3wzf" jscontroller="iDPoPb"
-                 jsname="gLFyf">
+            <div class="a4bIc" jsaction="h5M12e;input:d3sQLd;blur:jI3wzf" jscontroller="iDPoPb" jsname="gLFyf">
               <div class="pR49Ae gsfi" jsname="vdLsw"></div>
-              <input aria-autocomplete="both" aria-haspopup="false" aria-label="Tìm kiếm"
-                     autocapitalize="off" autocomplete="off" autocorrect="off" class="gLFyf gsfi"
-                     data-ved="0ahUKEwixnL2Mz9bpAhU1yosBHWsJAtYQ39UDCAk" jsaction="paste:puy29d"
-                     maxlength="2048" name="q"
+              <input aria-autocomplete="both" aria-haspopup="false" aria-label="Tìm kiếm" autocapitalize="off"
+                     autocomplete="off" autocorrect="off" class="gLFyf gsfi"
+                     data-ved="0ahUKEwixnL2Mz9bpAhU1yosBHWsJAtYQ39UDCAk" jsaction="paste:puy29d" maxlength="2048"
+                     name="q"
                      role="combobox" spellcheck="false" title="Tìm kiếm" type="text" value=""></div>
             <div class="dRYYxd">
-              <div aria-label="Xóa" class="clear-button XoaYSb"
-                   data-ved="0ahUKEwixnL2Mz9bpAhU1yosBHWsJAtYQ05YFCAo" jsaction="AVsnlb;rcuQ6b:npT2md"
-                   jscontroller="J5Ptqf" jsname="RP0xob" role="button">
+              <div aria-label="Xóa" class="clear-button XoaYSb" data-ved="0ahUKEwixnL2Mz9bpAhU1yosBHWsJAtYQ05YFCAo"
+                   jsaction="AVsnlb;rcuQ6b:npT2md" jscontroller="J5Ptqf" jsname="RP0xob" role="button">
                                     <span aria-label="Xóa" class="lBbtTb z1asCe rzyADb" jsname="itVqKe" tabindex="0">
                                     <svg
                                             focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path
@@ -4378,8 +4374,7 @@
               <div aria-label="Tìm kiếm bằng giọng nói" class="hpuQDe"
                    data-ved="0ahUKEwixnL2Mz9bpAhU1yosBHWsJAtYQvs8DCAs" jsaction="h5M12e;rcuQ6b:npT2md"
                    jscontroller="MC8mtf" role="button" tabindex="0">
-                <svg class="HPVvwb" focusable="false" viewBox="0 0 24 24"
-                     xmlns="http://www.w3.org/2000/svg">
+                <svg class="HPVvwb" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="m12 15c1.66 0 3-1.31 3-2.97v-7.02c0-1.66-1.34-3.01-3-3.01s-3 1.34-3 3.01v7.02c0 1.66 1.34 2.97 3 2.97z"
                         fill="#4285f4"></path>
                   <path d="m11 18.08h2v3.92h-2z" fill="#34a853"></path>
@@ -4391,8 +4386,8 @@
               </div>
             </div>
           </div>
-          <button aria-label="Tìm với Pythagon" class="Tg7LZd"
-                  data-ved="0ahUKEwixnL2Mz9bpAhU1yosBHWsJAtYQ4dUDCAw" jsname="Tg7LZd" type="submit">
+          <button aria-label="Tìm với Pythagon" class="Tg7LZd" data-ved="0ahUKEwixnL2Mz9bpAhU1yosBHWsJAtYQ4dUDCAw"
+                  jsname="Tg7LZd" type="submit">
             <div class="FAuhyb"><span class="z1asCe MZy1Rb"><svg focusable="false"
                                                                  viewBox="0 0 24 24"
                                                                  xmlns="http://www.w3.org/2000/svg"><path
@@ -4400,8 +4395,8 @@
             </div>
           </button>
         </div>
-        <div class="UUbT9" jsaction="mouseout:ItzDCd;mouseleave:MWfikb;hBEIVb:nUZ9le;YMFC3:VKssTb"
-             jscontroller="tg8oTe" jsname="UUbT9" style="display:none">
+        <div class="UUbT9" jsaction="mouseout:ItzDCd;mouseleave:MWfikb;hBEIVb:nUZ9le;YMFC3:VKssTb" jscontroller="tg8oTe"
+             jsname="UUbT9" style="display:none">
           <div class="RjPuVb" jsname="RjPuVb"></div>
           <div class="aajZCb" jsname="aajZCb">
             <div class="xtSCL"></div>
@@ -4500,13 +4495,11 @@
           <div class="col">
             <div class="jam-vertical-toolbar docs-material goog-toolbar" id="jam-vertical-toolbar" role="toolbar"
                  style="user-select: none;" tabindex="0">
-              <div aria-disabled="false"
-                   aria-expanded="false"
-                   aria-haspopup="true" aria-label="Bút" aria-pressed="true"
+              <div aria-disabled="false" aria-expanded="false" aria-haspopup="true" aria-label="Bút" aria-pressed="true"
                    class="jam-action-toolbar-menu-button jam-vertical-toolbar-button-base goog-inline-block jam-action-toolbar-menu-button-selected"
-                   data-tooltip="Bút" data-tooltip-align="r,c"
-                   data-tooltip-class="jam-vertical-toolbar-tooltip" id="drawingButton" role="button"
-                   style="user-select: none; color: rgb(60, 64, 67);">
+                   data-tooltip="Bút"
+                   data-tooltip-align="r,c" data-tooltip-class="jam-vertical-toolbar-tooltip" id="drawingButton"
+                   role="button" style="user-select: none; color: rgb(60, 64, 67);">
                 <div class="goog-inline-block jam-action-toolbar-menu-button-outer-box" style="user-select: none;">
                   <div class="goog-inline-block jam-action-toolbar-menu-button-inner-box" style="user-select: none;">
                     <div class="goog-inline-block jam-action-toolbar-menu-button-caption" style="user-select: none;">
@@ -4528,11 +4521,10 @@
                   </div>
                 </div>
               </div>
-              <div aria-disabled="false" aria-label="Xóa"
-                   aria-pressed="false" class="jam-vertical-toolbar-button-base goog-toolbar-button goog-inline-block"
-                   data-tooltip="Xóa" data-tooltip-align="r,c"
-                   data-tooltip-class="jam-vertical-toolbar-tooltip" id="eraserButton" role="button"
-                   style="user-select: none;">
+              <div aria-disabled="false" aria-label="Xóa" aria-pressed="false"
+                   class="jam-vertical-toolbar-button-base goog-toolbar-button goog-inline-block" data-tooltip="Xóa"
+                   data-tooltip-align="r,c" data-tooltip-class="jam-vertical-toolbar-tooltip" id="eraserButton"
+                   role="button" style="user-select: none;">
                 <div class="goog-toolbar-button-outer-box goog-inline-block" style="user-select: none;">
                   <div class="goog-toolbar-button-inner-box goog-inline-block" style="user-select: none;">
                     <div class="jam-button-selected-overlay jam-rounded-vertical-toolbar-button"
@@ -4555,11 +4547,10 @@
                   </div>
                 </div>
               </div>
-              <div aria-disabled="false" aria-label="Chọn"
-                   aria-pressed="false" class="jam-vertical-toolbar-button-base goog-toolbar-button goog-inline-block"
-                   data-tooltip="Chọn" data-tooltip-align="r,c"
-                   data-tooltip-class="jam-vertical-toolbar-tooltip" id="selectorButton" role="button"
-                   style="user-select: none;">
+              <div aria-disabled="false" aria-label="Chọn" aria-pressed="false"
+                   class="jam-vertical-toolbar-button-base goog-toolbar-button goog-inline-block" data-tooltip="Chọn"
+                   data-tooltip-align="r,c" data-tooltip-class="jam-vertical-toolbar-tooltip" id="selectorButton"
+                   role="button" style="user-select: none;">
                 <div class="goog-toolbar-button-outer-box goog-inline-block" style="user-select: none;">
                   <div class="goog-toolbar-button-inner-box goog-inline-block" style="user-select: none;">
                     <div class="jam-button-selected-overlay jam-rounded-vertical-toolbar-button"
@@ -4584,8 +4575,9 @@
               </div>
               <div aria-disabled="false" aria-label="Laser"
                    class="jam-vertical-toolbar-button-base goog-toolbar-button goog-inline-block" data-tooltip="Laser"
-                   data-tooltip-align="r,c" data-tooltip-class="jam-vertical-toolbar-tooltip"
-                   id="laserButton" role="button" style="user-select: none;">
+                   data-tooltip-align="r,c" data-tooltip-class="jam-vertical-toolbar-tooltip" id="laserButton"
+                   role="button"
+                   style="user-select: none;">
                 <div class="goog-toolbar-button-outer-box goog-inline-block" style="user-select: none;">
                   <div class="goog-toolbar-button-inner-box goog-inline-block" style="user-select: none;">
                     <div class="jam-button-selected-overlay jam-rounded-vertical-toolbar-button"
@@ -4797,20 +4789,38 @@
                         font-weight: normal
                       }
                     </style>
+                    <div class="row">
+                      <div class="col-xs-6" style="float:left">
+                        <div class="SPZz6b ">
+                          <div class="kno-ecr-pt PZPZlf gsmt i8lZMc">
+                            <span>Vẽ</span></div>
+                        </div>
+                        <div class=" jam-drawing-element-black jam-element goog-control">
+                          <canvas class="jam-drawing-element-canvas canvas" height="300" id="canvas" width="300">
+                            <svg class="jam-drawing-element-shape" height="100%" preserveAspectRatio="none"
+                                 width="100%">
+                              <polygon class="jam-drawing-element-shape-polygon"
+                                       style="stroke: rgb(60, 64, 67);"></polygon>
+                            </svg>
+                            <svg class="jam-drawing-element-line" height="100%" width="100%">
+                              <line class="jam-drawing-element-line-object" style="stroke: rgb(60, 64, 67);" x1="0"
+                                    x2="0"
+                                    y1="0"
+                                    y2="0"></line>
+                            </svg>
+                        </div>
+                      </div>
+                      <div class="col-xs-6" style="float:right">
 
-                    <div class=" jam-drawing-element-black jam-element goog-control">
-                      <canvas class="jam-drawing-element-canvas canvas" height="530" id="canvas" width="600">
-                        <svg class="jam-drawing-element-shape" height="100%" preserveAspectRatio="none" width="100%">
-                          <polygon class="jam-drawing-element-shape-polygon" style="stroke: rgb(60, 64, 67);"></polygon>
-                        </svg>
-                        <svg class="jam-drawing-element-line" height="100%" width="100%">
-                          <line class="jam-drawing-element-line-object" style="stroke: rgb(60, 64, 67);" x1="0" x2="0"
-                                y1="0"
-                                y2="0"></line>
-                        </svg>
+                        <div>
+                          <div class="SPZz6b ">
+                            <div class="kno-ecr-pt PZPZlf gsmt i8lZMc">
+                              <span>Dự đoán</span></div>
+                          </div>
+                          <canvas class="canvas" height="300" width="300">
+                        </div>
+                      </div>
                     </div>
-
-
                   </div>
                   <!--z-->
                 </div>
@@ -4843,7 +4853,7 @@
           }
 
           #rhs .HSryR {
-            margin: 6px 0 0 1px
+            margin: 6px 0 0 70px
           }
 
           .SoydSe {
@@ -5299,17 +5309,6 @@
         </style>
         <div class="rhscol col rhstc5" id="rhs" jsaction="rcuQ6b:npT2md" jscontroller="TxZWcc"
              jsdata="MdeVKb;;Cq+k00"><h1 class="bNg8Rb">Kết quả bổ sung</h1>
-          <script nonce="hgiWSAGx1ZpCVCY9AvyWug==">(function () {
-              var c4 = 1261;
-              var c5 = 1349;
-              var no5 = false;
-              var no3 = false;
-              (function () {
-                  var a = document.body.offsetWidth, b = no3 ? "rhstc4" : "rhstc3";
-                  a >= c4 && (b = no5 || a < c5 ? "rhstc4" : "rhstc5");
-                  document.getElementById("rhs").className += " " + b;
-              }).call(this);
-          })();</script>
           <div class="liYKde rhsvw g">
             <div class="kp-wholepage kp-wholepage-osrp HSryR EyBRub" data-hveid="CB8QAA"
                  data-ved="2ahUKEwjg8tqgzdjpAhWNGqYKHRRvD-IQ8esCKAB6BAgfEAA">
@@ -5337,10 +5336,7 @@
                             <div class="kno-ecr-pt PZPZlf gsmt i8lZMc"
                                  data-attrid="title" data-local-attribute="d3bn"
                                  data-ved="2ahUKEwjg8tqgzdjpAhWNGqYKHRRvD-IQ3B0oATAqegQIHxAM">
-                              <span>Kết quả dự đoán</span></div>
-                            <div class="wwUB2c PZPZlf" data-attrid="subtitle"><span
-                                    data-ved="2ahUKEwjg8tqgzdjpAhWNGqYKHRRvD-IQ2kooAjAqegQIHxAN">Độ chính xác 60%</span>
-                            </div>
+                              <span>Tỷ lệ dự đoán</span></div>
                           </div>
                           <div class="ZHyHcb"></div>
                         </div><!--n--></div>

@@ -1,6 +1,6 @@
 Cái vặn vít
-Đồng hồ đeo tay
-Bươm bướm
+đồng hồ đeo tay
+bươm bướm
 thanh kiếm
 con mèo
 quần short
@@ -18,17 +18,17 @@ chổi
 quạt
 cây kéo
 đám mây
-cái lều
+Cái lều
 đồng hồ
 tai nghe
-xe đạp
+Xe đạp
 biển báo dừng
 bàn
 bánh vòng
 ô
 mặt cười
 cái gối
-giường
+Giường
 cái cưa
 bóng đèn
 xẻng
@@ -41,7 +41,7 @@ ria
 điện thoại di động
 quân dai
 đe
-đài
+Đài
 cái ghế
 ngôi sao
 cửa
@@ -49,7 +49,7 @@ khuôn mặt
 nấm
 cây
 súng trường
-máy ảnh
+Máy ảnh
 sét đánh
 bông hoa
 bóng rổ
@@ -58,24 +58,24 @@ cây búa
 mũ
 dao
 ban lặn
-quảng trường
+Quảng trường
 cốc
 núi
 táo
 cái thìa
-chìa khóa
+Chìa khóa
 bút chì
 hàng
 thang
-tam giác
-áo thun
+Tam giác
+Áo thun
 chuông hư
 cái mic cờ rô
 con rắn
 bít tất
 va li
 máy tính xách tay
-cái kẹp giấy
+Cái kẹp giấy
 cầu vồng
 nến
 bánh mỳ
@@ -86,7 +86,7 @@ vòng tròn
 răng
 bánh mì kẹp xúc xích
 cái quạt
-băng ghế
+Băng ghế
 quạt trần
 quần vợt
 xe hơi
@@ -97,4 +97,4 @@ pizza
 nho
 con mắt
 bánh quy
-máy bay
+Máy bay

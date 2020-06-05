@@ -51,7 +51,6 @@ function setTable(top5, probs) {
     }
     //create the pie 
     createPie(".pieID.legend", ".pieID.pie");
-
 }
 
 /*
@@ -102,9 +101,11 @@ get the current image data
 function getImageData() {
     //get the minimum bounding box around the drawing 
     const mbb = getMinBox()
+    console.log(mbb);
 
-    //get image data according to dpi 
+    //get image data according to dpi
     const dpi = window.devicePixelRatio
+    console.log("mbb", mbb, "dpi", dpi);
     const imgData = canvas.contextContainer.getImageData(mbb.min.x * dpi, mbb.min.y * dpi,
         (mbb.max.x - mbb.min.x) * dpi, (mbb.max.y - mbb.min.y) * dpi);
     return imgData
@@ -119,6 +120,7 @@ function getFrame() {
 
         //get the image data from the canvas 
         const imgData = getImageData()
+        console.log("imgData", imgData);
 
         //get the prediction 
         const pred = model.predict(preprocess(imgData)).dataSync()
@@ -233,8 +235,13 @@ async function start() {
 }
 
 function allowDrawing() {
-    canvas.isDrawingMode = 1;
-    $('button').prop('disabled', false);
+    // console.log("canvas.isDrawingMode", canvas.isDrawingMode);
+    // console.log("1", canvas.isDrawingMode === null, "2", canvas.isDrawingMode === undefined, "3", canvas.isDrawingMode === 0)
+    if (canvas.isDrawingMode === 0) {
+        canvas.isDrawingMode = 1;
+    }else if (canvas.isDrawingMode === null || canvas.isDrawingMode === undefined){
+
+    }
     canvas.freeDrawingBrush.width = LINE_THIN;
 }
 
